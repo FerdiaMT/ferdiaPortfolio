@@ -9,7 +9,7 @@ import Layout from './components/Layout.jsx'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/ferdiaPortfolio/">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

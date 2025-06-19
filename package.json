@@ -10,8 +10,8 @@
     "build": "vite build",
     "postbuild": "copy CNAME dist", 
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "vite build && gh-pages -d dist"
+    "copy-cname": "copy CNAME dist\\CNAME",
+    "deploy": "npm run build && npm run copy-cname && gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.1.0",

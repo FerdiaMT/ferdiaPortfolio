@@ -6,12 +6,19 @@ const Layout = () => {
     <>
       <nav className="toolbar">
         <ul>
+
           <li>
             <Link to="/">Home</Link>
           </li>
-            <li>
+
+          <li>
              <Link to="/projects">Projects</Link>
           </li>
+
+          <li>
+             <Link to="/cyrillic">Cyrillic</Link>
+          </li>
+          
         </ul>
       </nav>
 

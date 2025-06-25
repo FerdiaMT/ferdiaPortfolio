@@ -7,6 +7,7 @@ import './App.css'
 import Home from './components/home.jsx'
 import Layout from './components/Layout.jsx'
 import Projects from './components/Projects.jsx'
+import Cyrillic from './components/Cyrillic.jsx'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="projects" element={<Projects />} />
+          <Route path="cyrillic" element={<Cyrillic />} />
         </Route>
       </Routes>
     </BrowserRouter>

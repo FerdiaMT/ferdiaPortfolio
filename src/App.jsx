@@ -1,28 +1,21 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './App.css'
 
-import Home from './components/home.jsx'
-import Layout from './components/Layout.jsx'
-import Projects from './components/Projects.jsx'
-import Cyrillic from './components/Cyrillic.jsx'
+import { BrowserRouter, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Route } from "react-router-dom";
+import { NotFound } from "./pages/NotFound";
+import './index.css'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="cyrillic" element={<Cyrillic />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+            <Route index element={<Home/>}/>
+            <Route path = "*" element={<NotFound/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export default App

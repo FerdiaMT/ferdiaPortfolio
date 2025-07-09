@@ -16,8 +16,8 @@ export const HeroSection = () => {
                     </h1>
 
                     <p className = "text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        Im a third year Computer Science and Software Engineering student at Maynooth University
-                        I enjoy building full stack web apps and low level systems.
+                        Im a third year Computer Science and Software Engineering student at Maynooth University.   <br></br>
+                        I enjoy building full stack web apps and low level systems.                                    <br></br>
                         Currently seeking a software engineering internship for January 2026.
                     </p>
 

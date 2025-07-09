@@ -17,23 +17,26 @@ export const ContactSection = () => {
 
                 <div className = "grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                    <div className = "space-y-8">
+                    <div className = "space-y-8 bg-card p-6 rounded-lg shadow-xs">
                         <h3 className = "text-2xl font-semibold mb-6">Contact Information</h3>
 
                         <div className = "space-y-6 justify-center">
 
-                            <div className = "flex items-start space-x-4">
+                            <div className = "relative w-full flex items-center justify-center w-full">
 
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Mail className="h-6 w-6 text-primary"/> {" "}
-                                </div>
 
-                                <div>
-                                    <h4 className="font-medium">Email</h4>
-                                    <a href = "mailto:ferdiatreacy@gmail.com" className= "text-muted-foreground hover:text-primary transition-colors duration-300">
-                                        ferdiatreacy@gmail.com
-                                    </a>
-                                </div>
+
+                                    <div className="p-3 rounded-full bg-primary/10 ml-auto">
+                                        <Mail className="h-6 w-6 text-primary"/> {" "}
+                                    </div>
+
+                                    <div className = "flex flex-col text-center w-full space-y-1 -translate-x-4">
+                                        <h4 className="font-medium ">Email</h4>
+                                        <a href = "mailto:ferdiatreacy@gmail.com" className= "text-muted-foreground hover:text-primary transition-colors duration-300 ">
+                                            ferdiatreacy@gmail.com
+                                        </a>
+                                    </div>
+                                
 
                             </div>
 
@@ -43,7 +46,7 @@ export const ContactSection = () => {
                                     <Phone className="h-6 w-6 text-primary"/> {" "}
                                 </div>
 
-                                <div>
+                                <div className = "flex flex-col items-center space-y-1 w-full -translate-x-6">
                                     <h4 className="font-medium">Phone Number</h4>
                                     <p  className= "text-muted-foreground hover:text-primary transition-colors duration-300">
                                         +353 087 7842 759
@@ -54,19 +57,19 @@ export const ContactSection = () => {
                         </div>
                     </div>
 
-                     <div className = "space-y-8">
-                        <h3 className = "text-2xl font-semibold mb-6">Socials</h3>
+                     <div className = "space-y-8 bg-card p-6 rounded-lg shadow-xs">
+                        <h3 className = "text-2xl font-semibold mb-6 "  >Socials</h3>
 
-                        <div className = "space-y-6 justify-center">
+                        <div className = "space-y-6 justify-center ">
 
 
-                            <div className = "flex items-start space-x-4">
+                            <div className = "flex items-start space-x-4" >
 
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Linkedin className="h-6 w-6 text-primary"/> {" "}
                                 </div>
 
-                                <div>
+                                <div className = "flex flex-col items-center space-y-1 w-full -translate-x-7">
                                     <h4 className="font-medium">LinkedIn</h4>
                                     <a href = "https://www.linkedin.com/in/ferdia-matti-treacy-0a3423331/" className= "text-muted-foreground hover:text-primary transition-colors duration-300">
                                         Ferdia Matti Treacy
@@ -81,7 +84,7 @@ export const ContactSection = () => {
                                     <Github className="h-6 w-6 text-primary"/> {" "}
                                 </div>
 
-                                <div>
+                                <div className = "flex flex-col items-center space-y-1 w-full -translate-x-7">
                                     <h4 className="font-medium">GitHub</h4>
                                     <a href = "https://github.com/FerdiaMT" className= "text-muted-foreground hover:text-primary transition-colors duration-300">
                                         FerdiaMT

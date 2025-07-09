@@ -31,12 +31,12 @@ const skills = [
 
 ];
 
-const categories = ["All","Programming Languages","Web Development","Tools"];
+const categories = ["Programming Languages","Web Development","Tools","All"];
 
 
 export const SkillsSection = () => {
 
-    const[activeCategory, setActiveCategory] = useState("All")
+    const[activeCategory, setActiveCategory] = useState("Programming Languages")
 
     const filteredSkills = skills.filter(
         (skill) =>

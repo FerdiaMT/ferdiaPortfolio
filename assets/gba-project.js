@@ -34,7 +34,8 @@
     if (dmgProject && rows.at(-1) !== dmgProject) list.append(dmgProject);
     [...list.querySelectorAll(".project-row")].forEach((row, index) => {
       const number = row.querySelector(".project-index");
-      if (number) number.textContent = String(index + 1).padStart(2, "0");
+      const expectedNumber = String(index + 1).padStart(2, "0");
+      if (number && number.textContent !== expectedNumber) number.textContent = expectedNumber;
     });
 
     const count = document.querySelector(".page-footer span");

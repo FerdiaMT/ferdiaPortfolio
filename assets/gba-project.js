@@ -28,9 +28,10 @@
     if (!list) return;
     if (!list.querySelector("[data-gba-project]")) list.insertAdjacentHTML("afterbegin", gbaRow());
 
-    const dmgProject = [...list.querySelectorAll(".project-row")]
+    const rows = [...list.querySelectorAll(".project-row")];
+    const dmgProject = rows
       .find((row) => row.textContent.includes("DMG Game Boy Emulator"));
-    if (dmgProject) list.append(dmgProject);
+    if (dmgProject && rows.at(-1) !== dmgProject) list.append(dmgProject);
     [...list.querySelectorAll(".project-row")].forEach((row, index) => {
       const number = row.querySelector(".project-index");
       if (number) number.textContent = String(index + 1).padStart(2, "0");

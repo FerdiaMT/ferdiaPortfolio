@@ -25,10 +25,33 @@
 
   const addProjectRow = () => {
     const list = document.querySelector(".project-list");
-    if (!list || list.querySelector("[data-gba-project]")) return;
-    list.insertAdjacentHTML("beforeend", gbaRow());
+    if (!list) return;
+    if (!list.querySelector("[data-gba-project]")) list.insertAdjacentHTML("afterbegin", gbaRow());
+
+    const dmgProject = [...list.querySelectorAll(".project-row")]
+      .find((row) => row.textContent.includes("DMG Game Boy Emulator"));
+    if (dmgProject) list.append(dmgProject);
+    [...list.querySelectorAll(".project-row")].forEach((row, index) => {
+      const number = row.querySelector(".project-index");
+      if (number) number.textContent = String(index + 1).padStart(2, "0");
+    });
+
     const count = document.querySelector(".page-footer span");
     if (count) count.textContent = "04 projects";
+  };
+
+  const createHeader = () => {
+    const header = document.createElement("header");
+    header.className = "site-header";
+    header.innerHTML = `
+      <a class="wordmark" href="${basePath}"><span>FT</span>Ferdia Treacy</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="${basePath}">About</a>
+        <a class="nav-link is-active" href="${basePath}">Projects</a>
+        <a class="nav-link" href="${asset("Ferdia_Matti_Treacy_CV.pdf")}">CV</a>
+      </nav>
+      <a class="header-contact" href="mailto:ferdiatreacy@gmail.com">Contact</a>`;
+    return header;
   };
 
   const updateHeaderLinks = (header) => {
@@ -44,9 +67,9 @@
   const showGbaProject = () => {
     const root = document.getElementById("root");
     const existingHeader = document.querySelector(".site-header");
-    if (!root || !existingHeader) return false;
+    if (!root) return false;
 
-    const header = existingHeader.cloneNode(true);
+    const header = existingHeader ? existingHeader.cloneNode(true) : createHeader();
     updateHeaderLinks(header);
     root.replaceChildren();
     const shell = document.createElement("div");
@@ -84,22 +107,16 @@
     return true;
   };
 
-  const render = () => {
+  const boot = () => {
     if (isGbaRoute()) {
-      if (!showGbaProject()) window.setTimeout(render, 25);
+      showGbaProject();
       return;
     }
     addProjectRow();
+    const observer = new MutationObserver(addProjectRow);
+    observer.observe(document.getElementById("root"), { childList: true, subtree: true });
   };
 
-  window.addEventListener("load", () => {
-    render();
-    const observer = new MutationObserver(render);
-    observer.observe(document.getElementById("root"), { childList: true, subtree: true });
-  });
-
-  window.addEventListener("hashchange", () => {
-    if (isGbaRoute()) render();
-    else location.assign(basePath);
-  });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
 })();

@@ -1,0 +1,45 @@
+.gba-project-row .project-image img {
+  filter: grayscale(.25) contrast(.92);
+}
+
+.gba-project-row h2 a:hover {
+  color: var(--green);
+}
+
+.gba-player {
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(54px, 7vw, 92px);
+  padding-top: 18px;
+}
+
+.gba-player-meta {
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 11px;
+}
+
+.gba-player-frame {
+  border: 1px solid var(--rule);
+  background: #111;
+  padding: clamp(6px, 1.1vw, 14px);
+}
+
+.gba-player iframe {
+  aspect-ratio: 3 / 2;
+  border: 0;
+  display: block;
+  width: 100%;
+}
+
+.gba-note {
+  color: var(--muted);
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .gba-player-meta { font-size: 9px; }
+}

@@ -109,14 +109,28 @@
     return true;
   };
 
+  const scheduleProjectRow = () => {
+    let attempts = 0;
+    const tryAdd = () => {
+      if (document.querySelector(".project-list")) {
+        addProjectRow();
+        return;
+      }
+      if (++attempts < 50) window.setTimeout(tryAdd, 50);
+    };
+    tryAdd();
+  };
+
   const boot = () => {
     if (isGbaRoute()) {
       showGbaProject();
       return;
     }
-    addProjectRow();
-    const observer = new MutationObserver(addProjectRow);
-    observer.observe(document.getElementById("root"), { childList: true, subtree: true });
+    scheduleProjectRow();
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("a.nav-link")) window.setTimeout(scheduleProjectRow, 0);
+    });
+    window.addEventListener("popstate", scheduleProjectRow);
   };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

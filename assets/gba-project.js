@@ -1,5 +1,5 @@
 (() => {
-  const basePath = "/ferdiaPortfolio/";
+  const basePath = location.pathname.startsWith("/ferdiaPortfolio/") ? "/ferdiaPortfolio/" : "/";
   const gbaHash = "#/projects/GBA";
   const gbaPath = `${basePath}${gbaHash}`;
   const asset = (path) => `${basePath}${path}`;

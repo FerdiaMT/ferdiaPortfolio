@@ -80,32 +80,19 @@
     shell.className = "site-shell";
     shell.append(header);
     shell.insertAdjacentHTML("beforeend", `
-      <main class="content-page projects-page page-enter">
-        <header class="page-heading">
+      <main class="content-page gba-page page-enter">
+        <header class="gba-play-heading">
           <div>
             <p class="eyebrow">Systems / WebAssembly</p>
-            <h1>Game Boy<br><em>Advance.</em></h1>
+            <h1>Game Boy Advance Emulator</h1>
           </div>
-          <p>A cycle-driven Game Boy Advance emulator built in modern C++ and compiled to WebAssembly for the browser.</p>
+          <a href="https://github.com/FerdiaMT/GameboyAdvanced" target="_blank" rel="noreferrer">↗ View source</a>
         </header>
-        <section class="project-list" aria-label="Game Boy Advance emulator">
-          <article class="project-row">
-            <div class="project-index">01</div>
-            <div class="project-image"><img src="${asset("projects/gba.png")}" alt="Game Boy Advance emulator gameplay"></div>
-            <div class="project-copy">
-              <h2>Play in the browser.</h2>
-              <p>The page runs the actual emulator and bundled cartridge. Click the display, then use Z and X for A and B, arrow keys for the D-pad, Enter for Start, and Backspace for Select.</p>
-              <ul><li>C++</li><li>WebAssembly</li><li>Emscripten</li><li>PPU rendering</li></ul>
-            </div>
-            <div class="project-links"><a href="https://github.com/FerdiaMT/GameboyAdvanced" target="_blank" rel="noreferrer">↗ Source</a></div>
-          </article>
-        </section>
         <section class="gba-player" aria-label="Playable Game Boy Advance emulator">
           <div class="gba-player-meta"><span>Super Mario Advance</span><span>Click the display to play</span></div>
           <div class="gba-player-frame"><iframe src="${asset("gba/index.html")}" title="Playable Game Boy Advance emulator" allowfullscreen></iframe></div>
-          <p class="gba-note">This build runs locally within the portfolio: no external emulator page or download is required.</p>
+          <p class="gba-note">Z / X: A / B · arrows: D-pad · Enter: Start · Backspace: Select</p>
         </section>
-        <footer class="page-footer"><span>Game Boy Advance emulator</span><a href="${basePath}">Back to portfolio ↗</a></footer>
       </main>`);
     root.append(shell);
     return true;

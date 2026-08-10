@@ -73,6 +73,8 @@
     const existingHeader = document.querySelector(".site-header");
     if (!root) return false;
 
+    document.documentElement.classList.add("gba-project-route");
+    document.body.classList.add("gba-project-route");
     const header = existingHeader ? existingHeader.cloneNode(true) : createHeader();
     updateHeaderLinks(header);
     root.replaceChildren();
@@ -82,16 +84,11 @@
     shell.insertAdjacentHTML("beforeend", `
       <main class="content-page gba-page page-enter">
         <header class="gba-play-heading">
-          <div>
-            <p class="eyebrow">Systems / WebAssembly</p>
-            <h1>Game Boy Advance Emulator</h1>
-          </div>
+          <h1>Game Boy Advance Emulator</h1>
           <a href="https://github.com/FerdiaMT/GameboyAdvanced" target="_blank" rel="noreferrer">↗ View source</a>
         </header>
         <section class="gba-player" aria-label="Playable Game Boy Advance emulator">
-          <div class="gba-player-meta"><span>Super Mario Advance</span><span>Click the display to play</span></div>
-          <div class="gba-player-frame"><iframe src="${asset("gba/index.html")}" title="Playable Game Boy Advance emulator" allowfullscreen></iframe></div>
-          <p class="gba-note">Z / X: A / B · arrows: D-pad · Enter: Start · Backspace: Select</p>
+          <div class="gba-player-frame"><iframe src="${asset("gba/index.html")}" title="Playable Game Boy Advance emulator" scrolling="no"></iframe></div>
         </section>
       </main>`);
     root.append(shell);

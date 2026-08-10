@@ -2,13 +2,28 @@
   filter: grayscale(.25) contrast(.92);
 }
 
-.gba-project-row h2 a:hover {
+.gba-project-row h2 a:hover,
+.gba-play-heading a:hover {
   color: var(--green);
 }
 
+html.gba-project-route,
+html.gba-project-route body,
+html.gba-project-route #root,
+html.gba-project-route .site-shell {
+  height: 100%;
+  overflow: hidden;
+}
+
 .gba-page {
-  padding-top: 24px;
-  padding-bottom: 36px;
+  --gba-header-height: 78px;
+  width: min(100% - 56px, 1180px);
+  height: calc(100dvh - var(--gba-header-height));
+  margin: 0 auto;
+  padding: clamp(14px, 2.5vh, 24px) 0 clamp(12px, 2vh, 20px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
 }
 
 .gba-play-heading {
@@ -16,12 +31,12 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 14px;
+  margin-bottom: clamp(10px, 1.5vh, 16px);
 }
 
 .gba-play-heading h1 {
   letter-spacing: -.035em;
-  margin: 4px 0 0;
+  margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(24px, 3vw, 38px);
   font-weight: 400;
@@ -34,45 +49,47 @@
   white-space: nowrap;
 }
 
-.gba-play-heading a:hover {
-  color: var(--ink);
-}
-
 .gba-player {
   border-top: 1px solid var(--ink);
-  margin-top: 0;
-  padding-top: 12px;
-}
-
-.gba-player-meta {
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  font-size: 11px;
+  min-height: 0;
+  padding-top: clamp(8px, 1.2vh, 12px);
 }
 
 .gba-player-frame {
+  height: 100%;
+  min-height: 0;
   border: 1px solid var(--rule);
   background: #111;
-  padding: clamp(6px, 1.1vw, 14px);
+  padding: clamp(4px, .8vw, 10px);
 }
 
 .gba-player iframe {
-  aspect-ratio: 3 / 2;
   border: 0;
   display: block;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.gba-note {
-  color: var(--muted);
-  margin: 16px 0 0;
-  font-size: 12px;
-  line-height: 1.6;
+@media (max-width: 820px) {
+  .gba-page {
+    --gba-header-height: 68px;
+    width: min(100% - 36px, 1180px);
+  }
 }
 
 @media (max-width: 520px) {
-  .gba-player-meta { font-size: 9px; }
-  .gba-play-heading { align-items: start; flex-direction: column; gap: 10px; }
+  .gba-play-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .gba-play-heading h1 { font-size: 24px; }
+}
+
+@media (max-height: 620px) {
+  .gba-page { padding-top: 10px; padding-bottom: 10px; }
+  .gba-play-heading { margin-bottom: 8px; }
+  .gba-play-heading h1 { font-size: 24px; }
 }

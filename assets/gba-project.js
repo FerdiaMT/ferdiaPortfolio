@@ -2,23 +2,25 @@
   const basePath = location.pathname.startsWith("/ferdiaPortfolio/") ? "/ferdiaPortfolio/" : "/";
   const gbaHash = "#/projects/GBA";
   const gbaPath = `${basePath}${gbaHash}`;
+  const standaloneGbaPage = location.pathname.endsWith("/gba-project.html");
+  const gbaDocumentPath = `${basePath}gba-project.html`;
   const asset = (path) => `${basePath}${path}`;
 
-  const isGbaRoute = () => location.hash.toLowerCase() === gbaHash.toLowerCase();
+  const isGbaRoute = () => standaloneGbaPage || location.hash.toLowerCase() === gbaHash.toLowerCase();
 
   const gbaRow = () => `
     <article class="project-row gba-project-row" data-gba-project>
       <div class="project-index">04</div>
-      <a class="project-image" href="${gbaPath}" aria-label="Play the Game Boy Advance emulator">
+      <a class="project-image" href="${gbaDocumentPath}" aria-label="Play the Game Boy Advance emulator">
         <img src="${asset("projects/gba.png")}" alt="Game Boy Advance emulator gameplay">
       </a>
       <div class="project-copy">
-        <h2><a href="${gbaPath}">Game Boy Advance Emulator</a></h2>
+        <h2><a href="${gbaDocumentPath}">Game Boy Advance Emulator</a></h2>
         <p>A browser-ready Game Boy Advance emulator written in C++. Its WebAssembly build runs the BIOS, cartridge, CPU, PPU and input loop directly in the browser.</p>
         <ul><li>C++</li><li>WebAssembly</li><li>Emscripten</li><li>CMake</li></ul>
       </div>
       <div class="project-links">
-        <a href="${gbaPath}">↗ Play</a>
+        <a href="${gbaDocumentPath}">↗ Play</a>
         <a href="https://github.com/FerdiaMT/GameboyAdvanced" target="_blank" rel="noreferrer">↗ Source</a>
       </div>
     </article>`;
@@ -123,6 +125,7 @@
 
   const boot = () => {
     if (isGbaRoute()) {
+      if (standaloneGbaPage) history.replaceState(null, "", gbaPath);
       showGbaProject();
       return;
     }

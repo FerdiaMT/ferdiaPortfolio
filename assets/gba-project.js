@@ -20,8 +20,8 @@
         <ul><li>C++</li><li>WebAssembly</li><li>Emscripten</li><li>CMake</li></ul>
       </div>
       <div class="project-links">
-        <a href="${gbaDocumentPath}">↗ Play</a>
-        <a href="https://github.com/FerdiaMT/GameboyAdvanced" target="_blank" rel="noreferrer">↗ Source</a>
+        <a href="${gbaDocumentPath}"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg><span>Play</span></a>
+        <a href="https://github.com/FerdiaMT/GameboyAdvanced" target="_blank" rel="noreferrer" aria-label="View Game Boy Advance emulator source on GitHub" title="View source on GitHub"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-2a4.8 4.8 0 0 0-1-3.5c3.28-.36 6.72-1.61 6.72-7.25A5.64 5.64 0 0 0 19.22 5.3 5.07 5.07 0 0 0 19.08 1S17.92.65 15 2.48a13.38 13.38 0 0 0-6 0C6.08.65 4.92 1 4.92 1a5.07 5.07 0 0 0-.14 4.3 5.64 5.64 0 0 0-1.5 3.92c0 5.64 3.44 6.89 6.72 7.25A4.8 4.8 0 0 0 9 20v2"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><span>Source</span></a>
       </div>
     </article>`;
 
